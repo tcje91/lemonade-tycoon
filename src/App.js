@@ -3,6 +3,7 @@ import "./App.css";
 import ClickBtn from "./components/ClickBtn";
 import StatList from "./components/StatList";
 import LemonSqueezerModule from "./components/LemonSqueezerModule";
+import MarkettingModule from "./components/MarkettingModule";
 
 class App extends Component {
   state = {
@@ -11,7 +12,7 @@ class App extends Component {
     lemonadeStock: 0,
     funds: 500,
     price: 100,
-    lemons: 10,
+    lemons: 0,
     lemonsPrice: 100,
     squeezerCount: 0,
     squeezerCost: 2000,
@@ -24,14 +25,15 @@ class App extends Component {
     , squeezerCount, markettingCost, marketting } = this.state;
     return (
       <div className="App">
-        <h1>Lemonade Tycoon Simulator 2019</h1>
+        <h1>lemonade tycoon simulator extreme 2019 GOTY edition</h1>
+        <h2>get lemons. make lemonade. ??? profit.</h2>
         <ClickBtn clickFunc={this.makeLemonade} label="Make a lemonade" />
         <br />
         <ClickBtn clickFunc={this.buyLemons} label="Buy lemons" />
         <br />
-        <ClickBtn clickFunc={this.incMarketting} label="Improve marketting" />
+        {/* <ClickBtn clickFunc={this.incMarketting} label="Improve marketting" />
         <p>Current level: {marketting}</p>
-        <p>Upgrade Cost: £{(markettingCost/100).toFixed(2)}</p>
+        <p>Upgrade Cost: £{(markettingCost/100).toFixed(2)}</p> */}
         <br />
         <ClickBtn className ="buttonLeft" clickFunc={() => this.incPrice(-10)} label="Decrease Price" />
         <ClickBtn className ="buttonRight" clickFunc={() => this.incPrice(10)} label="Increase Price" />
@@ -44,6 +46,7 @@ class App extends Component {
           lemons={lemons}
           lemonsPrice={lemonsPrice}
         />
+        <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting}/>
         <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} />
       </div>
     );
