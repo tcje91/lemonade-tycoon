@@ -4,10 +4,10 @@ const StatList = ({ lemondadeCount, lemonadeStock, funds, price, lemons, lemonsP
   return (
     <div>
       <p>Lemonades made: {lemondadeCount}</p>
-      <p>Lemonades in stock: {lemonadeStock}</p>
-      <p>Current funds: £{(funds/100).toFixed(2)}</p>
+      <p className={!lemonadeStock ? "warning" : ""}>Lemonades in stock: {lemonadeStock}</p>
+      <p className={!funds ? "warning" : ""}>Current funds: £{(funds/100).toFixed(2)}</p>
       <p>Lemonade price: £{(price/100).toFixed(2)}</p>
-      <p>Lemons: {lemons}</p>
+      <p className={!lemons ? "warning" : ""}>Lemons: {lemons}</p>
       <p>Lemons price: £{(lemonsPrice/100).toFixed(2)}</p>
     </div>
   );

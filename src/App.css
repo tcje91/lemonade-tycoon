@@ -1,7 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
 .App {
+  font-family: 'Inconsolata', monospace;
   margin-left: 2em;
+  padding: 0;
+  font-size: 14px;
 }
 
-.button {
-  margin: 0.5em;
+button {
+  margin: 0.2em;
+  font-family: 'Inconsolata', monospace;
 }
+
+.buttonLeft {
+  margin-right: 0px;
+}
+
+.buttonRight {
+  margin-left: 0px;
+}
+
+.warning {
+  font-weight: bold;
+  color: red;
+}
+
