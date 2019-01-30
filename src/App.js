@@ -42,8 +42,8 @@ class App extends Component {
           lemons={lemons}
           lemonsPrice={lemonsPrice}
         />
-        <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>
-        <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />
+        {lemonadeCount > 19 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>}
+        {lemonadeCount > 49 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}
       </div>
     );
   }
