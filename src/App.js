@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { CSSTransition } from 'react-transition-group';
 import ClickBtn from "./components/ClickBtn";
 import StatList from "./components/StatList";
 import LemonSqueezerModule from "./components/LemonSqueezerModule";
@@ -26,7 +27,6 @@ class App extends Component {
     , squeezerCount, markettingCost, marketting } = this.state;
     return (
       <div className="App">
-        <h1 onClick={this.setAnimate}>ANIMATE PLS</h1>
         <h1>lemonade tycoon simulator extreme 2019 GOTY edition</h1>
         <h2>get lemons. make lemonade. ??? profit.</h2>
         <ClickBtn clickFunc={this.makeLemonade} label="Make a lemonade" isDisabled={!lemons > 0} />
@@ -41,8 +41,22 @@ class App extends Component {
           price={price}
         />
         <LemonsModule funds={funds} lemons={lemons} lemonsPrice={lemonsPrice} buyLemons={this.buyLemons} />
-        {lemonadeCount > 19 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}
-        {lemonadeCount > 49 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>}
+        {/* {lemonadeCount > 19 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}
+        {lemonadeCount > 49 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>} */}
+        <CSSTransition
+          in={lemonadeCount > 19}
+          classNames="myT"
+          timeout={500}
+        >
+        <div>{lemonadeCount > 19 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}</div>
+        </CSSTransition>
+        <CSSTransition
+          in={lemonadeCount > 49}
+          classNames="myT"
+          timeout={500}
+        >
+        <div>{lemonadeCount > 49 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>}</div>
+        </CSSTransition>
       </div>
     );
   }
