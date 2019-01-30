@@ -4,6 +4,7 @@ import ClickBtn from "./components/ClickBtn";
 import StatList from "./components/StatList";
 import LemonSqueezerModule from "./components/LemonSqueezerModule";
 import MarkettingModule from "./components/MarkettingModule";
+import LemonsModule from "./components/LemonsModule";
 
 class App extends Component {
   state = {
@@ -25,25 +26,23 @@ class App extends Component {
     , squeezerCount, markettingCost, marketting } = this.state;
     return (
       <div className="App">
+        <h1 onClick={this.setAnimate}>ANIMATE PLS</h1>
         <h1>lemonade tycoon simulator extreme 2019 GOTY edition</h1>
         <h2>get lemons. make lemonade. ??? profit.</h2>
         <ClickBtn clickFunc={this.makeLemonade} label="Make a lemonade" isDisabled={!lemons > 0} />
-        <br />
-        <ClickBtn clickFunc={this.buyLemons} label="Buy lemons" isDisabled={funds < lemonsPrice} />
         <br />
         <ClickBtn className ="buttonLeft" clickFunc={() => this.incPrice(-10)} label="Decrease Price" />
         <ClickBtn className ="buttonRight" clickFunc={() => this.incPrice(10)} label="Increase Price" />
         <br />
         <StatList
-          lemondadeCount={lemonadeCount}
+          lemonadeCount={lemonadeCount}
           lemonadeStock={lemonadeStock}
           funds={funds}
           price={price}
-          lemons={lemons}
-          lemonsPrice={lemonsPrice}
         />
-        {lemonadeCount > 19 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>}
-        {lemonadeCount > 49 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}
+        <LemonsModule funds={funds} lemons={lemons} lemonsPrice={lemonsPrice} buyLemons={this.buyLemons} />
+        {lemonadeCount > 19 && <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />}
+        {lemonadeCount > 49 && <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>}
       </div>
     );
   }
@@ -97,6 +96,11 @@ class App extends Component {
       this.setState({ squeezerCost: squeezerCost + 2000, squeezerCount: squeezerCount + 1, funds: funds - squeezerCost })
       setInterval(this.makeLemonade, 1000);
     }
+  }
+
+  setAnimate = (event) => {
+    console.log(event.target)
+    event.target.className = "animated";
   }
 }
 
