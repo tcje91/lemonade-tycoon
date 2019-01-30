@@ -2,7 +2,7 @@ import React from "react";
 
 const StatList = ({ lemondadeCount, lemonadeStock, funds, price, lemons, lemonsPrice }) => {
   return (
-    <div>
+    <div className="module">
       <p>Lemonades made: {lemondadeCount}</p>
       <p className={!lemonadeStock ? "warning" : ""}>Lemonades in stock: {lemonadeStock}</p>
       <p className={!funds ? "warning" : ""}>Current funds: £{(funds/100).toFixed(2)}</p>

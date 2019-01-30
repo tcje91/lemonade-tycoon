@@ -27,13 +27,9 @@ class App extends Component {
       <div className="App">
         <h1>lemonade tycoon simulator extreme 2019 GOTY edition</h1>
         <h2>get lemons. make lemonade. ??? profit.</h2>
-        <ClickBtn clickFunc={this.makeLemonade} label="Make a lemonade" />
+        <ClickBtn clickFunc={this.makeLemonade} label="Make a lemonade" isDisabled={!lemons > 0} />
         <br />
-        <ClickBtn clickFunc={this.buyLemons} label="Buy lemons" />
-        <br />
-        {/* <ClickBtn clickFunc={this.incMarketting} label="Improve marketting" />
-        <p>Current level: {marketting}</p>
-        <p>Upgrade Cost: £{(markettingCost/100).toFixed(2)}</p> */}
+        <ClickBtn clickFunc={this.buyLemons} label="Buy lemons" isDisabled={funds < lemonsPrice} />
         <br />
         <ClickBtn className ="buttonLeft" clickFunc={() => this.incPrice(-10)} label="Decrease Price" />
         <ClickBtn className ="buttonRight" clickFunc={() => this.incPrice(10)} label="Increase Price" />
@@ -46,8 +42,8 @@ class App extends Component {
           lemons={lemons}
           lemonsPrice={lemonsPrice}
         />
-        <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting}/>
-        <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} />
+        <MarkettingModule marketting={marketting} markettingCost={markettingCost} incMarketting={this.incMarketting} funds={funds}/>
+        <LemonSqueezerModule addSqueezer={this.addSqueezer} squeezerCost={squeezerCost} squeezerCount={squeezerCount} funds={funds} />
       </div>
     );
   }

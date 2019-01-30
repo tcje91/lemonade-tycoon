@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ClickBtn = ({ clickFunc, label, className }) => {
+const ClickBtn = ({ clickFunc, label, className, isDisabled = false }) => {
   return (
-      <button className={className} onClick={clickFunc}>{label}</button>
+      <button className={className} onClick={clickFunc} disabled={isDisabled}>{label}</button>
   )
 }
 
