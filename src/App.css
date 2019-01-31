@@ -1,19 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|IBM+Plex+Mono|Cutive+Mono');
-/* @import url('https://fonts.googleapis.com/css?family=Cutive+Mono'); */
 
 .App {
   font-family: 'IBM Plex Mono', 'Cutive Mono', 'Inconsolata', monospace;
-  margin-left: 2em;
+  margin-left: 1em;
   padding: 0;
   font-size: 14px;
 }
 
+.modulesContainer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  height: 450px;
+  align-content: flex-start;
+}
+
+.module {
+  margin: 0.3em;
+  padding: 0.5em;
+  width: 30%;
+  border: 1px solid black;
+}
+
+#header {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 h2 {
   margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 h3 {
@@ -33,6 +57,7 @@ button {
 
 .buttonLeft {
   margin-right: 0px;
+  margin-left: 1.5em;
 }
 
 .buttonRight {
@@ -41,13 +66,6 @@ button {
 
 .warning {
   color: red;
-}
-
-.module {
-  margin: 0.5em 0;
-  padding: 0.5em;
-  width: 20%;
-  border: 1px solid black;
 }
 
 @keyframes myAnim {
@@ -71,7 +89,6 @@ button {
 
 .myT-enter-active {
   opacity: 1;
-  /* transition: opacity 1000ms; */
   animation: myAnim 500ms;
 }
 
