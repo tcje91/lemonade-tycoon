@@ -75,9 +75,9 @@ class App extends Component {
             lemonsPrice={lemonsPrice}
             buyLemons={this.buyLemons}
           />
-          <CSSTransition in={lemonadeCount > 19} classNames="myT" timeout={500}>
+          <CSSTransition in={lemonadeCount > 49} classNames="myT" timeout={500}>
             <>
-              {lemonadeCount > 19 && (
+              {lemonadeCount > 49 && (
                 <LemonSqueezerModule
                   addSqueezer={this.addSqueezer}
                   squeezerCost={squeezerCost}
@@ -87,9 +87,9 @@ class App extends Component {
               )}
             </>
           </CSSTransition>
-          <CSSTransition in={lemonadeCount > 49} classNames="myT" timeout={500}>
+          <CSSTransition in={lemonadeCount > 99} classNames="myT" timeout={500}>
             <>
-              {lemonadeCount > 49 && (
+              {lemonadeCount > 99 && (
                 <MarkettingModule
                   marketting={marketting}
                   markettingCost={markettingCost}
@@ -99,9 +99,9 @@ class App extends Component {
               )}
             </>
           </CSSTransition>
-          <CSSTransition in={lemonadeCount > 99} classNames="myT" timeout={500}>
+          <CSSTransition in={lemonadeCount > 199} classNames="myT" timeout={500}>
             <>
-              {lemonadeCount > 99 && (
+              {lemonadeCount > 199 && (
                 <TreeModule
                   treeCost={treeCost}
                   treeCount={treeCount}
@@ -165,7 +165,7 @@ class App extends Component {
 
   addLemons = () => {
     const { lemons } = this.state;
-    this.setState({ lemons: lemons + 20 });
+    this.setState({ lemons: lemons + 10 });
   };
 
   incPrice = num => {
@@ -177,7 +177,7 @@ class App extends Component {
     const { squeezerCost, squeezerCount, funds } = this.state;
     if (funds >= squeezerCost) {
       this.setState({
-        squeezerCost: squeezerCost * 2,
+        squeezerCost: squeezerCost + ((squeezerCount + 1) * 2000),
         squeezerCount: squeezerCount + 1,
         funds: funds - squeezerCost
       });
