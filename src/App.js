@@ -143,7 +143,7 @@ class App extends Component {
 
   handleNewPurchase = () => {
     const { price, marketting } = this.state;
-    const interval = (price * 10) / Math.pow(2, marketting - 1);
+    const interval = ((price/100)**2)*1000 / Math.pow(2, marketting - 1);
     setTimeout(() => {
       this.buyLemonade();
       this.handleNewPurchase();
