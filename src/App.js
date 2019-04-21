@@ -46,6 +46,7 @@ class App extends Component {
           <h1>lemonade tycoon simulator extreme 2019 GOTY edition</h1>
           <h2>get lemons. make lemonade. ??? profit.</h2>
         </div>
+        <div className="btn-bar">
         <ClickBtn
           clickFunc={this.makeLemonade}
           label="Make a lemonade"
@@ -61,6 +62,7 @@ class App extends Component {
           clickFunc={() => this.incPrice(10)}
           label="Increase Price"
         />
+        </div>
         <br />
         <div className="modulesContainer">
           <StatList
